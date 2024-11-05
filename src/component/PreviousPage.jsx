@@ -349,8 +349,8 @@ const PreviousPage = () => {
             clientName: clientName,
             clientNum: clientNum ? clientNum : ' ',
             clientEmail: clientEmail,
-            paymentLink: 'touseef.vercel.app' + URL
-            // paymentLink: window.location.host + URL,
+            // paymentLink: 'touseef.vercel.app' + URL
+            paymentLink: window.location.host + URL,
         };
 
         try {

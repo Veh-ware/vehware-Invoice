@@ -277,7 +277,7 @@ const brands = [
 
 
 const PreviousPage = () => {
-    const [selectedBrand, setSelectedBrand] = useState(null);
+    const [selectedBrand, setSelectedBrand] = useState({});
     const [productDesc, setProductDesc] = useState('');
     const [brandAmount, setBrandAmount] = useState("");
     const [clientName, setClientName] = useState("");
@@ -310,7 +310,7 @@ const PreviousPage = () => {
             message: message,
             title: message.title,
             description: message.description,
-            amount: message.amount,
+            amount: message.amount / 100,
             clientName: message.clientName,
             clientNum: message.clientNum,
             clientEmail: message.clientEmail,
@@ -350,7 +350,7 @@ const PreviousPage = () => {
             clientNum: clientNum ? clientNum : ' ',
             clientEmail: clientEmail,
             // paymentLink: 'touseef.vercel.app' + URL
-            paymentLink: window.location.host + URL,
+            // paymentLink: window.location.host,
         };
 
         try {
@@ -364,44 +364,27 @@ const PreviousPage = () => {
 
             const paymentData = paymentResponse.data.data.data;
 
-            console.log(paymentResponse.data);
 
             if (paymentResponse.status === 200 && paymentResponse.data.status === 200) {
                 console.log(paymentData);
                 const generatedUrl = `/payment/${paymentData.sessionId}`;
                 setURL(generatedUrl);
+                updatedBrandData.paymentLink = 'https://vehware-invoice.vercel.app' + generatedUrl
 
-                console.log("updatedBrandData=>", updatedBrandData);
-
-            //     const emailMessage = `
-            //     Hello, thank you for joining us! Here are the details:
-            
-            //     - Title: ${updatedBrandData.title}
-            //     - Description: ${updatedBrandData.description}
-            //     - Amount: $${updatedBrandData.amount}
-            //     - Client Name: ${updatedBrandData.clientName}
-            //     - Client Number: ${updatedBrandData.clientNum}
-            //     - Client Email: ${updatedBrandData.clientEmail}
-            //     - Image: ${updatedBrandData.image}
-            //     - Payment Link: ${updatedBrandData.paymentLink}
-            // `;
-
-                // Sending email only if clientEmail is valid
                 if (updatedBrandData.clientEmail && updatedBrandData.clientEmail.length > 8) {
                     try {
                         await sendMail(
-                            updatedBrandData.clientEmail, // Recipient's email
-                            'Vehware-Invoice', // Email subject
-                            updatedBrandData // Detailed email data object
+                            updatedBrandData.clientEmail,
+                            'Vehware-Invoice',
+                            updatedBrandData
                         );
-                        console.log('Email sent successfully');
                     } catch (emailError) {
                         console.error('Error sending email:', emailError);
                     }
                 } else {
                     console.warn('Invalid email or email length is too short');
                 }
-                // Display success message
+
                 Swal.fire({
                     title: "Good job!",
                     text: "Successfully Generated Link",
@@ -460,7 +443,7 @@ const PreviousPage = () => {
                 </select>
             </div>
 
-            {selectedBrand && (
+            {selectedBrand?.url && selectedBrand?.title && (
                 <div className="mb-8 bg-gray-100 p-5 rounded-lg border border-gray-300 shadow-md">
                     <img src={selectedBrand.url} alt="Brand Logo" className="h-52 w-auto mx-auto rounded-lg bg-black" />
                     <h3 className="text-2xl font-semibold text-center pt-4 text-black">{selectedBrand.title}</h3>

@@ -363,7 +363,7 @@ const PaymentPage = () => {
   useEffect(() => {
     const fetchPaymentDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/get-payment-details/${sessionId}`);
+        const response = await fetch(`https://invoice-backend-jet.vercel.app/api/get-payment-details/${sessionId}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -452,7 +452,7 @@ const PaymentPage = () => {
     } else if (paymentIntent && paymentIntent.status === 'succeeded') {
       try {
         console.log("paymentIntent=>", paymentIntent.status)
-        const response = await fetch(`http://localhost:5000/api/create-payment/${sessionId}`, {
+        const response = await fetch(`https://invoice-backend-jet.vercel.app/api/create-payment/${sessionId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

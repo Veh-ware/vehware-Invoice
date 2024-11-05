@@ -500,30 +500,33 @@ const PaymentPage = () => {
     <div className="h-full bg-slate-100 p-4 sm:p-8 md:p-16">
       {productDetails && productDetails.product_image && productDetails.product_title && productDetails.product_description && productPrice ? (
         <>
-          <div className='flex flex-col md:flex-row w-full max-w-5x2 mx-auto gap-5 shadow-lg rounded-2xl bg-white'>
+          <div className="flex flex-col md:flex-row w-full max-w-5xl mx-auto gap-5 shadow-lg rounded-2xl bg-white">
             {/* Left Section (Product and Customer Details) */}
             <div className="flex-1 bg-blue-950 p-4 sm:p-6 md:p-10 rounded-l-2xl shadow-lg">
-              <img
-                className="w-full max-h-60 sm:max-h-80 object-cover rounded-xl shadow-xl mb-4 sm:mb-6"
-                src={productDetails.product_image}
-                alt={productDetails.product_title}
-              />
+              <div className="w-full max-h-60 sm:max-h-80 flex justify-center items-center overflow-hidden mb-4 sm:mb-6 rounded-xl">
+                <img
+                  className="w-full h-full object-cover rounded-xl"
+                  src={productDetails.product_image}
+                  alt={productDetails.product_title}
+                />
+              </div>
               <div className="space-y-4 sm:space-y-8">
                 {/* Customer Details Section */}
                 <div>
                   <h2 className="text-white text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">Customer Details</h2>
-                  <p className="text-white text-lg sm:text-xl pl-2">
+                  <p className="text-white text-lg sm:text-xl pl-2 mb-3">
                     <span className="font-semibold text-blue-400">Customer Email:</span> {clientDetails.clientEmail}
                   </p>
-                  <p className="text-white text-lg sm:text-xl pl-2">
+                  <p className="text-white text-lg sm:text-xl pl-2 mb-3">
                     <span className="font-semibold text-blue-400">Name:</span> {clientDetails.clientName}
                   </p>
-                  {clientDetails.clientNum == " " ? <></> : (
-                    <p className="text-white text-lg sm:text-xl pl-2">
-                      <span className="font-semibold text-blue-400">Contact Number: </span>  {clientDetails.clientNum}
+                  {clientDetails.clientNum && (
+                    <p className="text-white text-lg sm:text-xl pl-2 mb-3">
+                      <span className="font-semibold text-blue-400">Contact Number:</span> {clientDetails.clientNum}
                     </p>
                   )}
                 </div>
+
                 {/* Brand Details Section */}
                 <div>
                   <h2 className="text-white text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">Details</h2>
@@ -538,8 +541,6 @@ const PaymentPage = () => {
                 </div>
                 {/* Brand Title */}
                 <h1 className="text-sm sm:text-base text-center font-bold pt-6 sm:pt-8 text-white">VEHWARE LLC.</h1>
-
-
               </div>
             </div>
 

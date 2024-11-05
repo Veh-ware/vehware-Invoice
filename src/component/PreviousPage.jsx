@@ -273,6 +273,7 @@ const brands = [
     { id: 21, title: "Your Books Publisher", url: "https://firebasestorage.googleapis.com/v0/b/vehware-logo.appspot.com/o/your%20books%20publisher%20logo%20003-02.png?alt=media&token=619998b1-b3e6-4ba8-948d-27281abc4f4c" },
     { id: 22, title: "Trademark-gov.us", url: "https://firebasestorage.googleapis.com/v0/b/vehware-logo.appspot.com/o/Trademark-gov.us%20logo-02%20(1).png?alt=media&token=f84d5d10-71d4-4e56-beb5-0ef1a6aff333" },
     { id: 23, title: "USPTO Trademark Revive", url: "https://firebasestorage.googleapis.com/v0/b/vehware-logo.appspot.com/o/USPTO%20Trademark%20Revive%20logo%20001-01.png?alt=media&token=cd70b183-73ac-4c19-b987-1c823cd411f5" },
+    { id: 24, title: "Z-Design Logos", url: "https://firebasestorage.googleapis.com/v0/b/vehware-logo.appspot.com/o/Z%20logo%20design-09.png?alt=media&token=ccf3cef5-f2d4-44a8-a480-c4cdfb0cac59" },
 ];
 
 

@@ -9,7 +9,7 @@ import PaymentPage from './component/PaymentPage';
 import EmailTemp from './component/EmailTemp';
 
 // Load Stripe
-const stripePromise = loadStripe('pk_test_51Q5CQjBSRlxFwzyWZZr67eMkwml3WUCZdRg4bcW5mtBx1NffoI3wDxNJ7QPAzEVUczP8ntAnMPmlDYeTyWEBpjl100xLHDUUps');
+const stripePromise = loadStripe('pk_live_51PsYF5Rs59uQ3D7xM0547PGcNYornB4y44BQXMqErO3ZhIsJ4kn2pD29vEcpA1woj6E5OTtgdaUadA3OiMv68TdE00SLVGmQH7');
 
 const App = () => {
   return (
